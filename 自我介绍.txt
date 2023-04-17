@@ -1,0 +1,5 @@
+Hi, interviewer, good evenning, firstly allow me to briefly talk about myself.
+i'm guojia. and you can call me by my english name ahmed.  Since i graduated from SYSU with majar software engineering, i have been working as a big data developer and i have about 4 years experiences. In my recent job, I am mainly responsible for the design and development of the data line architecture of CCB's life, realtime-data & batchtime-data collection of hadoop clusters, data warehouse construction and so on. After the joint efforts of me and my teammates, we successfully constructed the CCBLIFE data platform ecology from 0 to 1. At the same time, i get a lot of benefits from it.
+As a big data developer, i am good at data warehouse devepment, and i am familiar with mainstream technology in Bigdata, such as Hadoop, hive, Hbase, Kafka, flink, flume, filebeat, etc.
+last but not least, i am a postive person and i have big passion for learning great technologies. i believe that i can bring very huge energe to my job and my life.
+that's all, thank you!
