@@ -3,3 +3,20 @@ i'm guojia. and you can call me by my english name ahmed.  Since i graduated fro
 As a big data developer, i am good at data warehouse devepment, and i am familiar with mainstream technology in Bigdata, such as Hadoop, hive, Hbase, Kafka, flink, flume, filebeat, etc.
 last but not least, i am a postive person and i have big passion for learning great technologies. i believe that i can bring very huge energe to my job and my life.
 that's all, thank you!
+
+【spark & Hadoop】
+Spark is generally faster than Hadoop’s MapReduce for certain types of workloads. This is because Spark is designed to keep data in memory rather than writing it to disk, which can significantly reduce the amount of time it takes to process data. Spark can also cache intermediate data in memory, which can speed up iterative algorithms and interactive data analysis.
+
+In contrast, Hadoop’s MapReduce writes intermediate data to disk between each stage of processing. This can add significant overhead for workloads that require multiple stages of processing. However, for very large datasets that do not fit in memory, Hadoop’s MapReduce can still be a good choice because it can scale out to a large number of machines and process data in parallel.
+
+In summary, Spark can be faster than Hadoop’s MapReduce for certain types of workloads, particularly those that benefit from caching data in memory. However, the performance of both frameworks depends on many factors, including the size and complexity of the data being processed and the resources available in the cluster.
+
+【spark RDD】
+In summary, RDDs are a fundamental data structure in Spark that represents an immutable distributed collection of objects. They are partitioned across the nodes in a cluster and can be processed in parallel. RDDs support two types of operations: transformations and actions.
+
+【Java abstract class & interface】
+Some key differences between an abstract class and an interface include:
+
+An abstract class can have instance variables and constructors, while an interface cannot.
+An abstract class can contain both abstract and concrete methods, while an interface can only contain abstract methods (and default methods in Java 8 and above).
+A class can implement multiple interfaces, but can only extend one abstract class.
