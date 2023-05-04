@@ -14,6 +14,14 @@ In summary, Spark can be faster than Hadoop’s MapReduce for certain types of w
 【spark RDD】
 In summary, RDDs are a fundamental data structure in Spark that represents an immutable distributed collection of objects. They are partitioned across the nodes in a cluster and can be processed in parallel. RDDs support two types of operations: transformations and actions.
 
+【YARN】
+Apache Yarn is a resource manager that works with Hadoop and other applications to run them across a distributed architecture. 
+The architecture of Apache Yarn consists of the following main components12:
+1. Resource Manager: Runs on a master daemon and manages the resource allocation in the cluster. It has two sub-components: the Scheduler and the Applications Manager. The Scheduler is responsible for allocating resources to the various running applications subject to familiar constraints of capacities, queues etc. The Applications Manager is responsible for accepting job-submissions, negotiating the first container for executing the application specific ApplicationMaster and providing the service for restarting the ApplicationMaster container on failure.
+2. Node Manager: They run on the slave daemons and are responsible for the execution of a task on every single Data Node. They also monitor the resource usage (cpu, memory, disk, network) of each container and report it to the Resource Manager.
+3. Application Master: They are framework specific libraries that run on a container and are tasked with negotiating resources from the Resource Manager and working with the Node Manager(s) to execute and monitor the tasks. They also coordinate with the Resource Manager to deal with failures and completion of their applications.
+4. Container: They are the basic unit of resource allocation in Yarn. They incorporate elements such as memory, cpu, disk, network etc. Each application runs inside one or more containers across different nodes.
+
 【Java abstract class & interface】
 Some key differences between an abstract class and an interface include:
 
