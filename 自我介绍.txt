@@ -28,3 +28,10 @@ Some key differences between an abstract class and an interface include:
 An abstract class can have instance variables and constructors, while an interface cannot.
 An abstract class can contain both abstract and concrete methods, while an interface can only contain abstract methods (and default methods in Java 8 and above).
 A class can implement multiple interfaces, but can only extend one abstract class.
+
+【RetrantLock & Sychronized】
+ReentrantLock and synchronized both provide a way to synchronize access to shared resources by multiple threads. However, there are some differences between the two.
+
+One major difference is that ReentrantLock is more flexible than synchronized. With ReentrantLock, you can lock and unlock a lock in different methods or blocks of code, whereas with synchronized, the lock and unlock must occur in the same block of code.
+
+Another difference is that ReentrantLock provides more capabilities than synchronized. For example, ReentrantLock supports lock polling and interruptible lock waits that support time-out. It also has support for configurable fairness policy, allowing more flexible thread scheduling1.
