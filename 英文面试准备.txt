@@ -43,6 +43,7 @@ I’m very interested in working as a data engineer at your company because I ad
 
 
 【spark & Hadoop】
+https://www.interviewbit.com/blog/apache-spark-architecture/   --Spark
 Spark is generally faster than Hadoop’s MapReduce for certain types of workloads. This is because Spark is designed to keep data in memory rather than writing it to disk, which can significantly reduce the amount of time it takes to process data. Spark can also cache intermediate data in memory, which can speed up iterative algorithms and interactive data analysis.
 
 In contrast, Hadoop’s MapReduce writes intermediate data to disk between each stage of processing. This can add significant overhead for workloads that require multiple stages of processing. However, for very large datasets that do not fit in memory, Hadoop’s MapReduce can still be a good choice because it can scale out to a large number of machines and process data in parallel.
@@ -71,6 +72,9 @@ The architecture of Apache Yarn consists of the following main components12:
 2. Node Manager: They run on the slave daemons and are responsible for the execution of a task on every single Data Node. They also monitor the resource usage (cpu, memory, disk, network) of each container and report it to the Resource Manager.
 3. Application Master: They are framework specific libraries that run on a container and are tasked with negotiating resources from the Resource Manager and working with the Node Manager(s) to execute and monitor the tasks. They also coordinate with the Resource Manager to deal with failures and completion of their applications.
 4. Container: They are the basic unit of resource allocation in Yarn. They incorporate elements such as memory, cpu, disk, network etc. Each application runs inside one or more containers across different nodes.
+
+【HDFS】
+https://www.spiceworks.com/tech/big-data/articles/hadoop-distributed-file-system-hdfs/
 
 【Namenode & Datanode】
 In HDFS, the NameNode is the centerpiece of an HDFS file system. It keeps the directory tree of all files in the file system, and tracks where across the cluster the file data is kept. It does not store the data of these files itself.
@@ -164,7 +168,17 @@ I’m afraid I don’t follow you. Could you please explain what you mean?
 Pardon me, could you please repeat that? I missed what you said.
 I’m sorry, I’m not familiar with that word/term/acronym. Could you please tell me what it means?
 
+
 【questions】
 1. what are the bigest challenges that our team or company are facing?
 2. How many teammates does our data team have? and what are the main business or products we have?
 3. Could our company provide some international communication opportunities to our staff?
+
+【why are you leaving your current job?】
+In the past two years, we have completed the construction of CCBLIFE big data platform, data pipeline, data warehouse under the big efforts of me and my teammates. Now i am looking for the more responsibility and better learning opportunities and i think NCS is a great company and can provide me what i want.
+
+【what's your greates strength?】
+I think one of my greatest strengths is my adaptability. I can adjust quickly to changing situations and expectations. For instance, in my previous role as a data engineer, i recieved an urgent business task and i never had a touch to it before. So i had to make a work plan and i got to aquire the related technical and business knowledge as much as i can. As a result, we were able to complete the project on time and within budget, and even exceeded the client’s expectations (Result).
+
+【what is your greatest weakness?】
+My greatest weakness is that I get nervous when I have to speak in front of a large audience. This has affected my work in the past when I had to present a project report to a group of senior managers. I was so anxious that I forgot some of the key points and stumbled over my words. I realized that I needed to work on this skill, so I joined a Toastmasters club and started practicing my speeches regularly. I also asked for feedback from my colleagues and mentors on how to improve my delivery and confidence. I have seen some improvement in my public speaking ability, and I am eager to continue learning and growing in this area. I believe that this skill will help me communicate more effectively with clients and stakeholders in this job.
