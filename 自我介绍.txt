@@ -1,8 +1,30 @@
-Hi, interviewer, good mornning, firstly allow me to briefly talk about myself.
-i'm guojia. and you can call me by my english name ahmed.  Since i graduated from SYSU with majar software engineering, i have been working as a big data developer and i have about 4 years experiences. In my recent job, I am mainly responsible for the design and development of the data line architecture of CCB's life, realtime-data & batchtime-data collection of hadoop clusters, data warehouse construction and so on. After the joint efforts of me and my teammates, we successfully constructed the CCBLIFE data platform ecology from 0 to 1. At the same time, i get a lot of benefits from it.
-As a big data developer, i am good at data warehouse devepment, and i am familiar with mainstream technology in Bigdata, such as Hadoop, hive, Hbase, Kafka, flink, flume, filebeat, etc.
-last but not least, i am a postive person and i have big passion for learning great technologies. i believe that i can bring very huge energe to my job and my life.
+### hive
+``
+1. hive 外部表内部表区别
+2. 星型模型：一个事实表关联多个维度表；
+3. 雪花模型：一个事实表关联多个维度表，纬度表又可以拆分成多个子维度表进行关联；
+4. 星座模型：多个事实表共享维度表
+5. order by, sort by区别，一个是全局有序，一个是单reducer有序，distributed by 按照指定的字段对数据进行分区，输出到不同的reducer，cluster by 相当于distributed by + sort by
+6. 数据倾斜：过滤null值/null随机赋值/
+``
+### 英文自我介绍
+``
+Good mornning Jenvin, thank you so much for giving me this opportunity. firstly allow me to briefly talk about myself.
+i'm guojia. and you can call me by my english name ahmed.  Since i graduated from SYSU with majar software engineering, i have been working as a big data developer and i have about 4 years experiences. In my recent job, I am mainly responsible for the design and development of the data pipelines architecture of CCB's life, realtime-data & batchtime-data collection of hadoop clusters, data warehouse construction and so on. After the joint efforts of me and my teammates, we successfully constructed the CCBLIFE data platform ecology from 0 to 1. At the same time, i get a lot of benefits from it.
+As a big data developer, i am good at data warehouse devepment, and i am familiar with mainstream technology in Bigdata, such as Hadoop, hive, Hbase, Kafka, flink, flume, filebeat. Furthermore, i have been involved several big data projects and so i have lots of experiences.
+last but not least, i am a postive person and i have big passion for learning great technologies. i believe that i can bring many positive energe to people and things around me.
 that's all, thank you!
+``
+
+### Kafka/
+``
+ack值代表的含义：1（默认）leader确认收到消息就算发送成功，若leader宕机则丢失数据；0 数据发送出去即表示发送成功，可靠性最低；-1 ISR都确认收到消息才算发送成功。
+消息丢失、重复解决方案：
+--针对消息丢失：同步模式下，确认机制设置为-1，即让消息写入Leader和Follower之后再确认消息发送成功；异步模式下，为防止缓冲区满，可以在配置文件设置不限制阻塞超时时间，当缓冲区满时让生产者一直处于阻塞状态；
+--针对消息重复：将消息的唯一标识保存到外部介质中，每次消费时判断是否处理过即可。
+消息有序性：Kafka不保证整个topic数据有序，只能保证partition数据有序，因为partition只能被group中的一个消费者进行消费，若要保证topic有序，则将partition数设置为1.
+``
+
 
 【自我介绍example】
 Hello, I’m Jane Doe, a data engineer with three years of experience in building scalable and reliable data pipelines and platforms. I have a master’s degree in computer science from ABC University, where I focused on data mining and machine learning.
@@ -98,3 +120,11 @@ JDK stands for Java Development Kit. It is a software development environment us
 JRE stands for Java Runtime Environment. It is the environment required to run Java applications and applets. It includes the JVM, core classes and supporting files.
 
 JVM stands for Java Virtual Machine. It is an abstract machine that provides the runtime environment in which Java bytecode can be executed. It interprets compiled Java binary code (called bytecode) for a computer’s processor to understand.
+
+【CI/CD】
+CI/CD is a best practice for devops teams. It is also a best practice in agile methodology. By automating integration and delivery, CI/CD lets software development teams focus on meeting business requirements while ensuring code quality and software security.
+
+【questions】
+1. what are the bigest challenges that our team or company are facing?
+2. How many teammates does our data team have? and what are the main business or products we have?
+3. Could our company provide some international communication opportunities to our staff?
