@@ -1,0 +1,170 @@
+### hive
+``
+1. hive 外部表内部表区别
+2. 星型模型：一个事实表关联多个维度表；
+3. 雪花模型：一个事实表关联多个维度表，纬度表又可以拆分成多个子维度表进行关联；
+4. 星座模型：多个事实表共享维度表
+5. order by, sort by区别，一个是全局有序，一个是单reducer有序，distributed by 按照指定的字段对数据进行分区，输出到不同的reducer，cluster by 相当于distributed by + sort by
+6. 数据倾斜：过滤null值/null随机赋值/
+``
+### 英文自我介绍
+``
+Good mornning Jenvin, thank you so much for giving me this opportunity. firstly allow me to briefly talk about myself.
+i'm guojia. and you can call me by my english name ahmed.  Since i graduated from SYSU with majar software engineering, i have been working as a big data developer and i have about 4 years experiences. In my recent job, I am mainly responsible for the design and development of the data pipelines architecture of CCB's life, realtime-data & batchtime-data collection of hadoop clusters, data warehouse construction and so on. After the joint efforts of me and my teammates, we successfully constructed the CCBLIFE data platform ecology from 0 to 1. At the same time, i get a lot of benefits from it.
+As a big data developer, i am good at data warehouse devepment, and i am familiar with mainstream technology in Bigdata, such as Hadoop, hive, Hbase, Kafka, flink, flume, filebeat. Furthermore, i have been involved several big data projects and so i have lots of experiences.
+last but not least, i am a postive person and i have big passion for learning great technologies. i believe that i can bring many positive energe to people and things around me.
+that's all, thank you!
+``
+
+### Kafka/
+``
+ack值代表的含义：1（默认）leader确认收到消息就算发送成功，若leader宕机则丢失数据；0 数据发送出去即表示发送成功，可靠性最低；-1 ISR都确认收到消息才算发送成功。
+消息丢失、重复解决方案：
+--针对消息丢失：同步模式下，确认机制设置为-1，即让消息写入Leader和Follower之后再确认消息发送成功；异步模式下，为防止缓冲区满，可以在配置文件设置不限制阻塞超时时间，当缓冲区满时让生产者一直处于阻塞状态；
+--针对消息重复：将消息的唯一标识保存到外部介质中，每次消费时判断是否处理过即可。
+消息有序性：Kafka不保证整个topic数据有序，只能保证partition数据有序，因为partition只能被group中的一个消费者进行消费，若要保证topic有序，则将partition数设置为1.
+``
+
+Hi, interviewer, good mornning, firstly allow me to briefly talk about myself.
+i'm guojia. and you can call me by my english name ahmed.  Since i graduated from SYSU with majar software engineering, i have been working as a big data developer and i have about 4 years experiences. In my recent job, I am mainly responsible for the design and development of the data line architecture of CCB's life, realtime-data & batchtime-data collection of hadoop clusters, data warehouse construction and so on. After the joint efforts of me and my teammates, we successfully constructed the CCBLIFE data platform ecology from 0 to 1. At the same time, i get a lot of benefits from it.
+As a big data developer, i am good at data warehouse devepment, and i am familiar with mainstream technology in Bigdata, such as Hadoop, hive, Hbase, Kafka, flink, flume, filebeat, etc.
+last but not least, i am a postive person and i have big passion for learning great technologies. i believe that i can bring very huge energe to my job and my life.
+that's all, thank you!
+
+【自我介绍example】
+Hello, I’m Jane Doe, a data engineer with three years of experience in building scalable and reliable data pipelines and platforms. I have a master’s degree in computer science from ABC University, where I focused on data mining and machine learning.
+
+At my previous company, XYZ Inc., I was responsible for designing, developing, and maintaining data pipelines that ingested, processed, and delivered data from various sources to different applications and stakeholders. I used frameworks such as Apache Spark, Kafka, and Airflow to handle large volumes of data in batch and streaming modes. I also implemented data quality checks, monitoring, and alerting systems to ensure data accuracy and availability.
+
+One of the projects I’m most proud of is a real-time analytics dashboard that I built for the marketing team. The dashboard provided insights into customer behavior and preferences based on web and mobile app data. I designed the data model and architecture for the dashboard, using Kafka to stream data from web servers and mobile SDKs to Spark Streaming for processing and aggregation. I also used Spark SQL to query the data and visualize it using Tableau. The dashboard helped the marketing team optimize their campaigns and increase conversions by 15%.
+
+I’m very interested in working as a data engineer at your company because I admire your mission and values. I’m impressed by the innovative products and services you offer to your customers, and I would love to contribute to your data-driven culture. I’m eager to learn more about your current data challenges and goals, and how I can leverage my skills and experience to help you achieve them.
+
+
+
+【spark & Hadoop】
+Spark is generally faster than Hadoop’s MapReduce for certain types of workloads. This is because Spark is designed to keep data in memory rather than writing it to disk, which can significantly reduce the amount of time it takes to process data. Spark can also cache intermediate data in memory, which can speed up iterative algorithms and interactive data analysis.
+
+In contrast, Hadoop’s MapReduce writes intermediate data to disk between each stage of processing. This can add significant overhead for workloads that require multiple stages of processing. However, for very large datasets that do not fit in memory, Hadoop’s MapReduce can still be a good choice because it can scale out to a large number of machines and process data in parallel.
+
+In summary, Spark can be faster than Hadoop’s MapReduce for certain types of workloads, particularly those that benefit from caching data in memory. However, the performance of both frameworks depends on many factors, including the size and complexity of the data being processed and the resources available in the cluster.
+
+【spark RDD】
+In summary, RDDs are a fundamental data structure in Spark that represents an immutable distributed collection of objects. They are partitioned across the nodes in a cluster and can be processed in parallel. RDDs support two types of operations: transformations and actions.
+
+【RDD & DataFrame】
+The main differences between RDD and DataFrame are:
+
+RDD is an immutable distributed collection of objects while DataFrame is an immutable distributed collection of data organized into named columns.
+RDDs are more low-level than DataFrames and require more code to perform simple tasks.
+DataFrames are optimized for processing large datasets while RDDs are not.
+
+【Spark executor & Spark driver & Spark application】
+1. A Spark executor is a process launched for an application on a worker node that runs tasks and keeps data in memory or disk storage across them. Each application has its own executors.
+2. A Spark driver is the program that declares the transformations and actions on RDDs of data and submits such requests to the master.
+3. A Spark application is a self-contained computation unit that runs user-defined code and data on a cluster.
+
+【YARN】
+Apache Yarn is a resource manager that works with Hadoop and other applications to run them across a distributed architecture. 
+The architecture of Apache Yarn consists of the following main components12:
+1. Resource Manager: Runs on a master daemon and manages the resource allocation in the cluster. It has two sub-components: the Scheduler and the Applications Manager. The Scheduler is responsible for allocating resources to the various running applications subject to familiar constraints of capacities, queues etc. The Applications Manager is responsible for accepting job-submissions, negotiating the first container for executing the application specific ApplicationMaster and providing the service for restarting the ApplicationMaster container on failure.
+2. Node Manager: They run on the slave daemons and are responsible for the execution of a task on every single Data Node. They also monitor the resource usage (cpu, memory, disk, network) of each container and report it to the Resource Manager.
+3. Application Master: They are framework specific libraries that run on a container and are tasked with negotiating resources from the Resource Manager and working with the Node Manager(s) to execute and monitor the tasks. They also coordinate with the Resource Manager to deal with failures and completion of their applications.
+4. Container: They are the basic unit of resource allocation in Yarn. They incorporate elements such as memory, cpu, disk, network etc. Each application runs inside one or more containers across different nodes.
+
+【Namenode & Datanode】
+In HDFS, the NameNode is the centerpiece of an HDFS file system. It keeps the directory tree of all files in the file system, and tracks where across the cluster the file data is kept. It does not store the data of these files itself.
+
+On the other hand, DataNodes are responsible for storing and retrieving data blocks within each node’s local file system.
+
+【Hive】
+Apache Hive is a data warehousing tool that is used to process structured data in Hadoop. It provides an SQL-like interface to query data stored in various databases and file systems that integrate with Hadoop.
+
+Here are some tips for optimizing Hive SQL:
+
+1. Use partitioning to reduce the amount of data scanned.
+2. Use bucketing to optimize joins.
+3. Use ORC or Parquet file formats for better performance.
+4. Use vectorization to speed up processing.
+5. Use Tez or Spark as the execution engine for faster query processing.
+
+
+【Java abstract class & interface】
+Some key differences between an abstract class and an interface include:
+
+An abstract class can have instance variables and constructors, while an interface cannot.
+An abstract class can contain both abstract and concrete methods, while an interface can only contain abstract methods (and default methods in Java 8 and above).
+A class can implement multiple interfaces, but can only extend one abstract class.
+
+【RetrantLock & Sychronized】
+ReentrantLock and synchronized both provide a way to synchronize access to shared resources by multiple threads. However, there are some differences between the two.
+
+One major difference is that ReentrantLock is more flexible than synchronized. With ReentrantLock, you can lock and unlock a lock in different methods or blocks of code, whereas with synchronized, the lock and unlock must occur in the same block of code.
+
+Another difference is that ReentrantLock provides more capabilities than synchronized. For example, ReentrantLock supports lock polling and interruptible lock waits that support time-out. It also has support for configurable fairness policy, allowing more flexible thread scheduling1.
+
+【sleep & wait】
+The main difference between wait() and sleep() methods in Java is that whenever a thread calls wait() method, it releases the lock or monitor it holds and when it calls sleep() method, it doesn’t release the lock or monitor it holds12.
+
+The sleep() method is used to pause the execution of the current thread for a specified amount of time. It is a static method of the Thread class2.
+
+On the other hand, the wait() method is used to pause the execution of a particular thread in a multi-threaded environment. It is a non-static method of the Object class1.
+
+【checked exception & unchecked exception】
+In Java, there are two types of exceptions: checked and unchecked exceptions. Checked exceptions are in knowledge of the compiler whereas unchecked exceptions are not in knowledge of the compiler1.
+
+Checked exceptions must be handled in the developer’s code with try-and-catch semantics2. If try-and-catch semantics are not required, it is known as an unchecked exception2.
+
+Here are some examples of checked exceptions in Java: IOException, SQLException, ClassNotFoundException3.
+
+Here are some examples of unchecked exceptions in Java: ArithmeticException, NullPointerException, ArrayIndexOutOfBoundsException3.
+
+【JDk & JRE & JVM】
+JDK stands for Java Development Kit. It is a software development environment used to develop Java applications and applets. It includes the JRE, an interpreter/loader (Java), a compiler (javac), an archiver (jar), a documentation generator (javadoc) and other tools needed in Java development.
+
+JRE stands for Java Runtime Environment. It is the environment required to run Java applications and applets. It includes the JVM, core classes and supporting files.
+
+JVM stands for Java Virtual Machine. It is an abstract machine that provides the runtime environment in which Java bytecode can be executed. It interprets compiled Java binary code (called bytecode) for a computer’s processor to understand.
+
+【CI/CD/Agile/DevOps】
+CI/CD, Agile and DevOps are related but distinct concepts in the software development and IT industry. Here is a brief summary of each one:
+
+1.CI/CD stands for continuous integration/continuous delivery or continuous deployment. It is a set of processes that help software development teams deliver code changes more frequently and reliably by automating the stages of app development, testing, and deployment. CI/CD is part of DevOps, which helps shorten the software development lifecycle
+2.Agile is an iterative approach to project management and software development that helps teams deliver value to their customers faster and with fewer headaches. Instead of betting everything on a big launch, agile teams deliver work in small, but consumable, increments. Agile is not defined by a set of ceremonies or specific development techniques, but by a group of methodologies that demonstrate a commitment to tight feedback cycles and continuous improvement
+3.DevOps is a culture, fostering collaboration among all roles involved in the development and maintenance of software. DevOps also refers to the union of people, process, and technology to continually provide value to customers. DevOps influences the application lifecycle throughout its plan, develop, deliver, and operate phases. DevOps enables coordination and collaboration between formerly siloed roles like development, IT operations, quality engineering, and security
+
+【How do you design and implement data pipelines?】
+Data pipelines are processes that automate the collection, transformation, and delivery of data from various sources to various destinations. Data pipelines can be used for different purposes, such as analytics, reporting, machine learning, or operational applications.
+
+To design and implement data pipelines, you need to follow some steps and best practices. Here are some of them:
+
+- **Determine the goal**. You need to identify the outcome or value that the data pipeline will provide to your business or organization. What problem are you trying to solve? What questions are you trying to answer? What actions are you trying to enable?
+- **Choose the data sources**. You need to consider the possible data sources that will enter the data pipeline. What types of data do you need? Where does the data come from? How often does the data change? How reliable and consistent is the data?
+- **Identify your ingestion strategy**. You need to decide how you will collect and bring the data into the data pipeline. Will you use batch or streaming ingestion? What tools or frameworks will you use to connect to the data sources? How will you handle errors or failures in the ingestion process?
+- **Design the data processing phase**. You need to define how you will transform the data into a consumable state for your destination. How will you validate, clean, normalize, enrich, and aggregate the data? What tools or languages will you use to perform the data processing? How will you ensure data quality and reliability?
+- **Choose where to store the data**. You need to select the appropriate destination for your data based on your goal and use case. Will you use a data warehouse, a data lake, a database, or a cloud storage service? How will you organize and structure the data in the destination? How will you secure and protect the data?
+- **Monitor and maintain the data pipeline**. You need to establish a framework for monitoring and maintaining the performance and health of your data pipeline. How will you track and measure key metrics such as throughput, latency, error rate, and resource utilization? How will you troubleshoot and resolve issues or anomalies in the data pipeline? How will you update or scale the data pipeline as your requirements change?
+
+【Dimentional modeling methodology】
+Dimensional modeling methodology is a logical design method that aims to present the data in a standard structure that is intuitive and enables high-performance access. It is based on the concepts of facts and dimensions, where facts are numerical measures and dimensions are descriptive attributes that provide context to the facts.
+
+Dimensional modeling methodology follows a four-step design process that helps to ensure the usability and effectiveness of the data model. The four steps are:
+
+Choose the business process. This step involves identifying the main business process or subject area that the data model will support, such as sales, inventory, claims, etc. The business process defines the scope and granularity of the data model.
+Declare the grain. This step involves specifying the level of detail or granularity of each fact record in the data model. The grain defines what each fact record represents and how it can be aggregated or filtered. For example, the grain could be one row per product per store per day.
+Identify the dimensions. This step involves listing the dimensions that will provide context and meaning to the facts. Dimensions are groups of hierarchies and attributes that describe the who, what, where, when, why, and how of the business process. For example, some common dimensions are product, customer, store, date, time, etc.
+Identify the facts. This step involves listing the facts or measures that will quantify the performance or outcome of the business process. Facts are typically numeric values that can be summed, averaged, counted, or calculated. For example, some common facts are sales amount, quantity sold, profit margin, etc.
+
+
+【如果你听不懂对方说的英语，你可以用以下的一些英语短语来表达你的困惑或请求对方重复】
+
+I’m sorry, I didn’t catch that. Could you please say it again?
+Could you please speak more slowly? I’m having trouble understanding you.
+I’m afraid I don’t follow you. Could you please explain what you mean?
+Pardon me, could you please repeat that? I missed what you said.
+I’m sorry, I’m not familiar with that word/term/acronym. Could you please tell me what it means?
+
+【questions】
+1. what are the bigest challenges that our team or company are facing?
+2. How many teammates does our data team have? and what are the main business or products we have?
+3. Could our company provide some international communication opportunities to our staff?
